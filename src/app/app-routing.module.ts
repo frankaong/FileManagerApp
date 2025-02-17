@@ -8,8 +8,20 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'tabs-file/create-file',
     pathMatch: 'full'
+  },
+  {
+    path: 'create-file',
+    loadChildren: () => import('./create-file/create-file.module').then( m => m.CreateFilePageModule)
+  },
+  {
+    path: 'folders-file',
+    loadChildren: () => import('./folders-file/folders-file.module').then( m => m.FoldersFilePageModule)
+  },
+  {
+    path: 'tabs-file',
+    loadChildren: () => import('./tabs-file/tabs-file.module').then( m => m.TabsFilePageModule)
   },
 ];
 

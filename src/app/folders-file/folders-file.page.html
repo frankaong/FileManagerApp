@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>File List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-list>
+    <ion-card *ngFor="let file of files">
+      <ion-card-header (click)="readFile(file)">
+        <ion-card-title>{{ file }}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content *ngIf="file === selectedFile">
+        <p>{{ selectedContent }}</p>
+      </ion-card-content>
+
+      <ion-button (click)="deleteFile(file)" expand="block" color="danger">
+        <ion-icon name="trash-outline" slot="start"></ion-icon>
+        Delete File
+      </ion-button>
+    </ion-card>
+  </ion-list>
+
+</ion-content>
